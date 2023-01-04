@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Button } from "@mui/material";
+// import axios from "axios";
 import CreateInput from "./helper";
 import useStyles from "../styles/AlumnsFormStyles";
 
@@ -50,7 +51,17 @@ function AlumnForm() {
       [inputName]: inputValue
     }));
   };
-  const onFormSubmit = (e) => {
+
+  const onFormSubmit = async (e) => {
+    const resp = await fetch("http://localhost:5000", {
+      method: "post",
+      body: JSON.stringify(formDetails),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+    // resp = await resp.json();
+    console.log(resp);
     e.preventDefault();
   };
 
@@ -83,7 +94,6 @@ function AlumnForm() {
           <Button type="reset" variant="outlined">Reset</Button>
           <Button type="submit" variant="contained">Submit</Button>
         </div>
-
       </form>
     </div>
   );
