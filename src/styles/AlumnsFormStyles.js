@@ -37,7 +37,6 @@ const useStyles = makeStyles({
     "& button": {
       margin: "0 10px"
     }
-
   }
 });
 
