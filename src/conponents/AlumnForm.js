@@ -42,6 +42,7 @@ function AlumnForm() {
       reader.readAsDataURL(img);
     }
   };
+
   const onChangeHandler = (e) => {
     const inputValue = e.target.value;
     const inputName = e.target.name;
@@ -53,7 +54,7 @@ function AlumnForm() {
 
   const onFormSubmit = async (e) => {
     e.preventDefault();
-    await fetch("http://localhost:8080/api/admin", {
+    await fetch("https://the-alumns.onrender.com/api/admin", {
       method: "post",
       body: JSON.stringify(formDetails),
       headers: {

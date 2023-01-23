@@ -6,20 +6,20 @@ function Admin() {
   const classes = useStyles();
   const [fetchedData, setFetchedData] = useState([]);
 
-  const featchDataToVerify = async () => {
-    const response = await axios.get("http://localhost:8080/api/admin");
+  const fatchDataToVerify = async () => {
+    const response = await axios.get("https://the-alumns.onrender.com/api/admin");
     const { data } = response;
     setFetchedData(data);
   };
 
   useEffect(() => {
-    featchDataToVerify();
+    fatchDataToVerify();
   }, []);
 
   const deleteProfile = async (ind) => {
     const targetElement = fetchedData[ind];
     const { _id } = targetElement;
-    await axios.delete(`http://localhost:8080/api/admin/${_id}`);
+    await axios.delete(`https://the-alumns.onrender.com/api/admin/${_id}`);
   };
 
   const verifyAndDeleteProfile = async (ind) => {
@@ -35,7 +35,7 @@ function Admin() {
       company,
       photoURL
     };
-    await fetch("http://localhost:8080/api/theAlumns/", {
+    await fetch("https://the-alumns.onrender.com/api/theAlumns/", {
       method: "post",
       body: JSON.stringify(dataToBePost),
       headers: {

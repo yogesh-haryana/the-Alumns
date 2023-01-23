@@ -7,7 +7,7 @@ function AlumnsPage() {
   const [alumnsData, setAlumnsData] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/api/theAlumns")
+    axios.get("https://the-alumns.onrender.com/api/theAlumns")
       .then((resp) => setAlumnsData(resp.data))
       .catch((resp) => console.warn(resp));
   }, []);
